@@ -92,13 +92,17 @@ def solve():
     for _ in range(t): # Read each test case
         n = ni() # Read number of elements
         arr = nlist(n) # Read the array of elements
-        ans = example()
+        ans = maxSubArray("", arr) # Call the solution function
         out.append(str(ans))
     print("\n".join(out))
 
 # solution Function
-def example():
-    return [1, 2, 3, 4, 5]
+def maxSubArray(self, nums: List[int]) -> int:
+    ov = curr = nums[0]
+    for i in range(1, len(nums)):
+        curr = max(nums[i], curr + nums[i])
+        ov = max(ov, curr)
+    return ov   
 
     
 # =========================== ENTRY ===========================
